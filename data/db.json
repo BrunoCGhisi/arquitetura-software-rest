@@ -1,0 +1,21 @@
+{
+  "vehicles":
+  [
+    {
+      "id": 1,
+      "plate": "ABC1D23",
+      "model": "Civic",
+      "year": 2024,
+      "brand_id": 1,
+      "mileage": 15000
+    }
+  ],
+  "brands":
+  [
+    {
+      "id": 1,
+      "name": "Honda",
+      "active": true
+    }
+  ]
+}

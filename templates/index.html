@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestão de Veículos</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header>
+        <h1>Gestão de Veículos</h1>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Cadastrar veículo</h2>
+
+            <form id="vehicle-form">
+
+                <input
+                    type="hidden"
+                    id="vehicle-id"
+                >
+
+                <input
+                    type="text"
+                    id="plate"
+                    placeholder="Placa"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="model"
+                    placeholder="Modelo"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="year"
+                    placeholder="Ano"
+                    required
+                >
+
+                <select id="brand-id" required>
+                    <option value="">
+                        Selecione a marca
+                    </option>
+                </select>
+
+                <input
+                    type="number"
+                    id="mileage"
+                    placeholder="Quilometragem"
+                    min="0"
+                    value="0"
+                >
+
+                <button type="submit">
+                    Salvar veículo
+                </button>
+
+                <button
+                    type="button"
+                    onclick="clearVehicleForm()"
+                >
+                    Limpar
+                </button>
+
+            </form>
+        </section>
+
+
+        <section>
+
+            <h2>Veículos</h2>
+
+            <input
+                type="text"
+                id="vehicle-search"
+                placeholder="Pesquisar por placa ou modelo"
+                oninput="loadVehicles()"
+            >
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Placa</th>
+                        <th>Modelo</th>
+                        <th>Ano</th>
+                        <th>Marca</th>
+                        <th>KM</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody id="vehicles-table"></tbody>
+
+            </table>
+
+        </section>
+
+
+        <section>
+
+            <h2>Marcas</h2>
+
+            <form id="brand-form">
+
+                <input
+                    type="hidden"
+                    id="brand-id"
+                >
+
+                <input
+                    type="text"
+                    id="brand-name"
+                    placeholder="Nome da marca"
+                    required
+                >
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="brand-active"
+                        checked
+                    >
+
+                    Ativa
+                </label>
+
+                <button type="submit">
+                    Salvar marca
+                </button>
+
+                <button
+                    type="button"
+                    onclick="clearBrandForm()"
+                >
+                    Limpar
+                </button>
+
+            </form>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody id="brands-table"></tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script
+        src="{{ url_for('static', filename='js/app.js') }}"
+    ></script>
+
+</body>
+
+</html>
